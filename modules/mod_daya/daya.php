@@ -47,7 +47,7 @@ if($act == 'index'):
 <?php elseif($act == 'tambah'): ?>
     <div class="row">
         <div class="container">
-            <h2>Kembali
+            <h2>Tambah Data
                 <a href="?mod=daya" class="btn btn-danger mb-3 float-end">
                     <ion-icon name="arrow-back-outline"></ion-icon> Kembali
                 </a>
@@ -88,7 +88,7 @@ if($act == 'index'):
         ?>
         <div class="row">
             <div class="container">
-                <h2>Kembali
+                <h2>Ubah Data
                     <a href="?mod=daya" class="btn btn-danger mb-3 float-end">
                         <ion-icon name="arrow-back-outline"></ion-icon> Kembali
                     </a>
