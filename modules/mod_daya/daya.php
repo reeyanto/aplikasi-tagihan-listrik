@@ -3,7 +3,7 @@ $act = isset($_GET['act']) ? $_GET['act'] : 'index';
 
 if($act == 'index'):
     $sql = "SELECT * FROM daya ORDER BY kode ASC";
-    $result = mysqli_query($koneksi, $sql) or die(mysqli_error());
+    $result = mysqli_query($koneksi, $sql) or die(mysqli_error($koneksi));
     ?>
     <div class="row">
         <div class="container">
