@@ -13,10 +13,11 @@ Dibuat sebagai bagian dari pengabdian kepada masyarakat dosen Program Studi Mana
 5. Pembuatan modul-modul  
 
 ## Database  
-CREATE DATABASE `db_tagihan_listrik`  
+CREATE DATABASE IF NOT EXISTS `db_tagihan_listrik`;
+USE `db_tagihan_listrik`;
 
 ### Tabel daya  
-CREATE TABLE `daya` (  
+CREATE TABLE IF NOT EXISTS `daya` (  
   `kode` varchar(5) NOT NULL,  
   `daya` varchar(10) NOT NULL,  
   `tarif_perkwh` int(11) NOT NULL,  
@@ -24,26 +25,38 @@ CREATE TABLE `daya` (
 );  
 
 ### Tabel pelanggan  
-CREATE TABLE `pelanggan` (  
+CREATE TABLE IF NOT EXISTS `pelanggan` (  
   `id` varchar(12) NOT NULL,  
+  `daya_kode` varchar(5) NOT NULL,  
   `nama` varchar(50) NOT NULL,  
   `alamat` varchar(100) NOT NULL,  
   `hp` varchar(12) DEFAULT NULL,  
-  `daya_kode` varchar(5) NOT NULL,
-  PRIMARY KEY(`id`),
-  FOREIGN KEY(`daya_kode`) REFERENCES `daya`(`kode`) ON UPDATE CASCADE ON DELETE RESTRICT  
+  PRIMARY KEY(`id`),  
+  FOREIGN KEY(`daya_kode`) REFERENCES `daya`(`kode`) ON UPDATE CASCADE ON DELETE CASCADE    
 );  
 
-### Tabel tagihan  
-CREATE TABLE `tagihan` (  
+### Tabel penggunaan  
+CREATE TABLE IF NOT EXISTS `penggunaan` (  
+  `id` int NOT NULL AUTO_INCREMENT,  
   `pelanggan_id` varchar(12) NOT NULL,  
-  `periode` date NOT NULL,  
-  `kwh` int(11) NOT NULL COMMENT 'KWH pemakaian periode ini',  
-  `total_bayar` int(11) NOT NULL,  
-  `status_bayar` enum('0','1') DEFAULT '0' COMMENT '0 = belum bayar, 1 = sudah dibayar',
-  PRIMARY KEY(`pelanggan_id`, `periode`),  
+  `bulan` int NOT NULL,  
+  `tahun` year NOT NULL,  
+  `meteran_awal` int NOT NULL,  
+  `meteran_akhir` int NOT NULL,  
+  PRIMARY KEY(`id`),  
   FOREIGN KEY(`pelanggan_id`) REFERENCES `pelanggan`(`id`) ON UPDATE CASCADE ON DELETE CASCADE  
-);  
+);
+
+### Tabel pembayaran  
+CREATE TABLE IF NOT EXISTS `pembayaran` (  
+  `id` int NOT NULL AUTO_INCREMENT,  
+  `penggunaan_id` INT NOT NULL, 
+  `tanggal` date NOT NULL,  
+  `jml_tagihan` int NOT NULL,  
+  `metode_pembayaran` enum('1', '2', '3') COMMENT '1 = Kantor POS, 2 = Toko Ritel, 3 = Lainnya',  
+  PRIMARY KEY(`id`),  
+  FOREIGN KEY(`penggunaan_id`) REFERENCES `penggunaan`(`id`) ON UPDATE CASCADE ON DELETE CASCADE  
+);
 
 ## Struktur Direktori  
 aplikasi-tagihan-listrik  
