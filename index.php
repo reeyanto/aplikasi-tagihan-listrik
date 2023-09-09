@@ -22,7 +22,6 @@
                             <ion-icon name="server-outline"></ion-icon> Data Master
                         </a>
                         <ul class="dropdown-menu">
-<<<<<<< HEAD
                             <li>
                                 <a class="dropdown-item" href="?mod=daya">
                                     <ion-icon name="flash-outline"></ion-icon> Daya Listrik
@@ -34,13 +33,6 @@
                                     <ion-icon name="people-outline"></ion-icon> Pelanggan
                                 </a>
                             </li>
-=======
-                            <li><a class="dropdown-item" href="?mod=daya">Daya Listrik</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="?mod=pelanggan">Pelanggan</a></li>
->>>>>>> e9fc79fff9036a0977e66ea26c4020bc81b13e8d
                         </ul>
                     </li>
                     <li class="nav-item">
