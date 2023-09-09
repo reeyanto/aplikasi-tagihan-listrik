@@ -24,17 +24,32 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
-                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Data Master
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <ion-icon name="server-outline"></ion-icon> Data Master
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="?mod=daya">Daya Listrik</a></li>
+                            <li>
+                                <a class="dropdown-item" href="?mod=daya">
+                                    <ion-icon name="flash-outline"></ion-icon> Daya Listrik
+                                </a>
+                            </li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="?mod=pelanggan">Pelanggan</a></li>
+                            <li>
+                                <a class="dropdown-item" href="?mod=pelanggan">
+                                    <ion-icon name="people-outline"></ion-icon> Pelanggan
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?mod=tagihan">Tagihan</a>
+                        <a class="nav-link" href="?mod=penggunaan">
+                            <ion-icon name="pulse-outline"></ion-icon> Penggunaan
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?mod=pembayaran">
+                            <ion-icon name="wallet-outline"></ion-icon> Pembayaran
+                        </a>
                     </li>
                 </ul>
             </div>

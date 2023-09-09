@@ -13,7 +13,7 @@ Dibuat sebagai bagian dari pengabdian kepada masyarakat dosen Program Studi Mana
 5. Pembuatan modul-modul  
 
 ## Database  
-CREATE DATABASE IF NOT EXISTS `db_tagihan_listrik`;
+CREATE DATABASE IF NOT EXISTS `db_tagihan_listrik`;  
 USE `db_tagihan_listrik`;
 
 ### Tabel daya  
