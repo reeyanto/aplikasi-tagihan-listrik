@@ -1,6 +1,6 @@
 # Aplikasi Tagihan Listik  
 Dibuat sebagai bagian dari pengabdian kepada masyarakat dosen Program Studi Manajemen Informatika Kampus Pelalawan PSDKU Politeknik Negeri Padang di Sekolah Menengah Kejuruan (SMK) Negeri 1 Pangkalan Kerinci.  
-  
+<img width="1262" alt="Screen Shot 2023-09-10 at 14 33 15" src="https://github.com/reeyanto/aplikasi-tagihan-listrik/assets/17137623/c3451bc6-1c8f-4ce1-9134-08fec92bd6ef">  
 ## Sistem Requirements  
 1. XAMPP/Laragon/PHPTriad dan sebagainya  
 2. Code Editor Visual Studio Code, Sublime Text, Notepad++ dan sebagainya  
