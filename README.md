@@ -71,3 +71,5 @@ aplikasi-tagihan-listrik
 |  
 |_ koneksi.php  
 |_ index.php 
+|_ script.php  
+|_ style.php

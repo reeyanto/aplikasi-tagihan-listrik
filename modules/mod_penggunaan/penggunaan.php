@@ -2,7 +2,10 @@
 $act = isset($_GET['act']) ? $_GET['act'] : 'index';
 
 if($act == 'index'):
-    $sql = "SELECT pg.*, pl.id as pelanggan_id, pl.nama, pg.meteran_akhir - pg.meteran_awal as jumlah_kwh FROM penggunaan pg JOIN pelanggan pl ON pg.pelanggan_id = pl.id";
+    $sql = "SELECT pg.*, pl.id as pelanggan_id, pl.nama, pb.id as pembayaran_id 
+            FROM penggunaan pg 
+            JOIN pelanggan pl ON pg.pelanggan_id = pl.id
+            LEFT JOIN pembayaran pb ON pg.id = pb.penggunaan_id;";
     $result = mysqli_query($koneksi, $sql) or die(mysqli_error($koneksi));
     ?>
     <div class="row">
@@ -23,7 +26,6 @@ if($act == 'index'):
                         <th>Tahun</th>
                         <th>Meteran Awal</th>
                         <th>Meteran Akhir</th>
-                        <th>Jumlah KWH</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -39,10 +41,10 @@ if($act == 'index'):
                             <td><?php echo $data['tahun']; ?></td>
                             <td><?php echo $data['meteran_awal']; ?></td>
                             <td><?php echo $data['meteran_akhir']; ?></td>
-                            <td><?php echo $data['jumlah_kwh']; ?></td>
                             <td>
                                 <a href="modules/mod_penggunaan/aksi.php?act=hapus&id=<?php echo $data['id']; ?>" onclick="return confirm('Yakin ingin hapus data ini?')" class="btn btn-sm btn-danger">Hapus</a>
                                 <a href="?mod=penggunaan&act=ubah&id=<?php echo $data['id']; ?>" class="btn btn-sm btn-warning">Ubah</a>
+                                <a href="?mod=pembayaran&act=tambah&penggunaan_id=<?php echo $data['id']; ?>" class="btn btn-sm btn-primary <?php if($data['pembayaran_id'] != null) echo "disabled"; ?>">Bayar</a>
                             </td>
                         </tr>
                     <?php endwhile; ?>
